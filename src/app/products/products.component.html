@@ -10,26 +10,12 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Fanta</td>
-        <td>10</td>
+      <tr *ngFor="let product of productsList">
+        <th scope="row">{{product.id}}</th>
+        <td>{{product.name}}</td>
+        <td [ngClass]="{'red-color' : product.price > 12}">{{product.price | currency}}</td>
         <button type="button" class="btn btn-outline-primary"
-        [routerLink]="['/products', 'red', 'fanta']">Detalle</button>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Cocacola</td>
-        <td>15</td>
-        <button type="button" class="btn btn-outline-primary"
-        [routerLink]="['/products', 'green', 'cocacola']">Detalle</button>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Sprite</td>
-        <td>20</td>
-        <button type="button" class="btn btn-outline-primary"
-        [routerLink]="['/products', 'yellow', 'sprite']">Detalle</button>
+        [routerLink]="['/products', product.id]">Detalle</button>
       </tr>
     </tbody>
   </table>
