@@ -1,0 +1,35 @@
+<h1>products works!</h1>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Producto</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Detalle</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Fanta</td>
+        <td>10</td>
+        <button type="button" class="btn btn-outline-primary"
+        [routerLink]="['/products', 'red', 'fanta']">Detalle</button>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Cocacola</td>
+        <td>15</td>
+        <button type="button" class="btn btn-outline-primary"
+        [routerLink]="['/products', 'green', 'cocacola']">Detalle</button>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Sprite</td>
+        <td>20</td>
+        <button type="button" class="btn btn-outline-primary"
+        [routerLink]="['/products', 'yellow', 'sprite']">Detalle</button>
+      </tr>
+    </tbody>
+  </table>
