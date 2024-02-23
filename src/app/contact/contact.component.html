@@ -3,8 +3,7 @@
         <div class="mb-3">
             <label for="name" class="form-label">Nombre</label>
             <input [ngClass]="{'is-invalid': hasErrors('name', 'required') ||
-            hasErrors('name', 'minlenght')}" 
-            type="text" class="form-control" id="name" formControlName="name">
+            hasErrors('name', 'minlenght')}" type="text" class="form-control" id="name" formControlName="name">
             <div class="text-danger" *ngIf="hasErrors('name', 'required')">
                 Nombre requerido
             </div>
@@ -15,8 +14,7 @@
         <div class="mb-3">
             <label for="apellido" class="form-label">apellido</label>
             <input [ngClass]="{'is-invalid': hasErrors('name', 'required') ||
-            hasErrors('namme', 'minlenght')}" 
-            type="text" class="form-control" id="name" formControlName="apellido">
+            hasErrors('namme', 'minlenght')}" type="text" class="form-control" id="name" formControlName="apellido">
             <div class="text-danger" *ngIf="hasErrors('apellido', 'required')">
                 apellido requerido
             </div>
@@ -25,10 +23,17 @@
             </div>
         </div>
         <div class="mb-3">
-            <label for="dni" class="form-label">dni</label>
+            <label for="tipoDni" class="form-label">tipo dni</label>
+            <select class="form-select" id="tipoDni" formControlName="tipoDni">
+                <option value="DNI">DNI</option>
+                <option value="Pasaporte">Pasaporte</option>
+                <option value="Otro">Otro</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="dni" class="form-label">{{tipoDni}}</label>
             <input [ngClass]="{'is-invalid': hasErrors('dni', 'required') ||
-            hasErrors('dni', 'minlenght')}" 
-            type="text" class="form-control" id="dni" formControlName="dni">
+            hasErrors('dni', 'minlenght')}" type="text" class="form-control" id="dni" formControlName="dni">
             <div class="text-danger" *ngIf="hasErrors('dni', 'required')">
                 dni requerido
             </div>
@@ -39,8 +44,7 @@
         <div class="mb-3">
             <label for="email" class="form-label">Email address</label>
             <input [ngClass]="{'is-invalid': hasErrors('email', 'required') || 
-            hasErrors('email', 'email')}" 
-            type="email" class="form-control" id="email" formControlName="email">
+            hasErrors('email', 'email')}" type="email" class="form-control" id="email" formControlName="email">
             <div class="text-danger" *ngIf="hasErrors('email', 'email')">
                 Email invalido
             </div>

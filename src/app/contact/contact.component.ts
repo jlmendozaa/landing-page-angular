@@ -9,33 +9,23 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class ContactComponent implements OnInit{
 
   formularioContacto: FormGroup
-  usuarioActivo?: any = {
-    nombre: 'pedro',
-    apellido: '',
-    dni: 'asdasdasd'
-  }
+  tipoDni: string = 'DNI';
 
   constructor(private form: FormBuilder){
     this.formularioContacto = this.form.group({
       name: ['', [Validators.required, Validators.minLength(3)]],
       apellido: ['', [Validators.required, Validators.minLength(3)]],
       dni: [''],
+      tipoDni: [''],
       email: ['', [Validators.required, Validators.email]]
     })
   }
 
   ngOnInit(): void {
-    this.formularioContacto.get('apellido')?.clearValidators()
-    this.formularioContacto.get('apellido')?.updateValueAndValidity()
-
-    this.formularioContacto.patchValue({
-      name: this.usuarioActivo.nombre,
-      apellido: this.usuarioActivo.apellido,
-      dni: this.usuarioActivo.dni
+    this.formularioContacto.get('tipoDni')?.valueChanges.subscribe(valor =>{
+      console.log(valor)
+      this.tipoDni=valor
     })
-    this.formularioContacto.get('name')?.disable()
-    this.formularioContacto.get('apellido')?.disable()
-    this.formularioContacto.get('dni')?.disable()
   }
 
   enviar(){
